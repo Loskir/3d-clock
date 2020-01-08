@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" :class="theme">
     <div class="svg-wrapper">
       <svg class="svg" viewBox="-10 -10 1020 1020">
         <circle :r="clockRadius" :cx="clockRadius" :cy="clockRadius" class="clock"/>
@@ -25,6 +25,14 @@
     </div>
     <footer class="footer">
       <span>Made with ❤️ by <a href="https://loskir.ru" target="_blank">@Loskir</a></span>
+      <label>
+        Theme:
+        <select v-model="theme">
+          <option value="default">Default</option>
+          <option value="flat-white">Flat white</option>
+          <option value="flat-black">Flat black</option>
+        </select>
+      </label>
       <span><a href="https://github.com/Loskir/3d-clock" target="_blank">GitHub</a></span>
     </footer>
   </div>
@@ -70,11 +78,7 @@
 
         ms: 0,
 
-        debugDrawings: false,
-
-        timeTimeout: undefined,
-
-        devMenuOpened: false,
+        theme: 'default',
 
         Point,
         Vector,
@@ -169,6 +173,8 @@
     height: 100vh;
     overflow: hidden;
 
+    select
+      font-family monospace
 
   a {
     color: #007bff;
@@ -181,7 +187,7 @@
   }
 
   .svg-wrapper {
-    padding: 100px 50px;
+    padding: 50px;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
@@ -191,37 +197,87 @@
     max-width: 100%;
     max-height: 100%;
 
-    .clock {
-      fill white
-      stroke #464f60
+    .clock
       stroke-width 10
-    }
-
-    .center {
-      fill: #363636;
-    }
 
     .primary
-      stroke #1f1f1f
       stroke-width 7
       stroke-linecap round
 
     .secondary
-      stroke #999999
       stroke-width 1
       stroke-linecap round
 
-  .footer {
+  .footer
     position: absolute;
     z-index: 100;
     width: 100%;
     bottom: 0;
-    background: white;
-    border-top: solid 1px #ced4da;
-    padding: 20px 50px;
+    padding: 15px 50px;
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-  }
+
+
+  .default
+    .svg
+      .clock
+        fill white
+        stroke #464f60
+
+      .center
+        fill #363636
+
+      .primary
+        stroke #1f1f1f
+
+      .secondary
+        stroke #999999
+
+    .footer
+      background white
+      border-top solid 1px #ced4da
+
+  .flat-white
+    .svg
+      .clock
+        fill white
+        stroke none
+
+      .center
+        fill #303030
+
+      .primary
+        stroke #1f1f1f
+
+      .secondary
+        stroke #999999
+
+    .footer
+      background white
+
+  .flat-black
+    background-color black
+    color white
+    .svg
+      .clock
+        fill none
+        stroke none
+
+      .center
+        fill #fafafa
+
+      .primary
+        stroke white
+
+      .secondary
+        stroke #808080
+
+    .footer
+      background black
+
+    select
+      color white
+      background-color black
 </style>
