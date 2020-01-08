@@ -30,6 +30,7 @@
         <select v-model="theme">
           <option value="default">Default</option>
           <option value="flat-white">Flat white</option>
+          <option value="black">Black</option>
           <option value="flat-black">Flat black</option>
         </select>
       </label>
@@ -263,6 +264,29 @@
       .clock
         fill none
         stroke none
+
+      .center
+        fill #fafafa
+
+      .primary
+        stroke white
+
+      .secondary
+        stroke #808080
+
+    .footer
+      background black
+
+    select
+      color white
+      background-color black
+
+  .black
+    background-color black
+    color white
+    .svg
+      .clock
+        stroke #383838
 
       .center
         fill #fafafa
