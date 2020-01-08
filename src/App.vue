@@ -192,7 +192,7 @@
     max-height: 100%;
 
     .clock {
-      fill: #e6e6e6
+      fill white
       stroke #464f60
       stroke-width 10
     }
