@@ -1,4 +1,4 @@
 module.exports = {
   outputDir: 'docs',
-  publicPath: '/flexible-clock',
+  publicPath: '/3d-clock',
 }
