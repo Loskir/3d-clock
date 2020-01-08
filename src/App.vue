@@ -220,6 +220,8 @@
     flex-direction: row;
     justify-content: space-between;
 
+  select
+    border none
 
   .default
     .svg
