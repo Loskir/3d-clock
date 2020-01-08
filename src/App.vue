@@ -237,7 +237,6 @@
 
     .footer
       background white
-      border-top solid 1px #ced4da
 
   .flat-white
     .svg
